@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - {{ res.Res_name }}</title>
+</head>
+<body>
+    <h2>Menu for {{ res.Res_name }}</h2>
+    <p>Address: {{ res.address }}</p>
+    <p>Category: {{ res.Food_cat }}</p>
+    <p>Rating: {{ res.rating }}</p>
+
+    <table border="1" style="width: 100vw">
+        <tr>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Availability</th>
+            <th>Category</th>
+        </tr>
+        {% for item in menu %}
+        <tr>
+            <td>{{ item.item_name }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.price }}</td>
+            <td>
+                {% if item.is_available %}Available{% else %}Not Available{% endif %}
+            </td>
+            <td>{{ item.category }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No menu items available</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
