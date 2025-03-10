@@ -1,6 +1,7 @@
 from django import forms
 from .models import Restaurants
 from .models import Menu
+from .models import Cart 
 
 class ResForm(forms.ModelForm):
     class Meta:
@@ -11,3 +12,8 @@ class MenuForm(forms.ModelForm):
     class Meta:
         model = Menu
         fields = ['item_name', 'description', 'price', 'is_available', 'category']
+
+
+class CartForm(forms.ModelForm):
+    list_display = ("customer", "total_price")
+
