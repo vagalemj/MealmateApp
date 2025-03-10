@@ -13,7 +13,6 @@ urlpatterns = [
     path('view_menu/<int:id>/', views.view_menu, name = 'view_menu'),
     path('add_menu/<int:id>/', views.add_menu, name = 'add_menu'),
     path('delete_menu/<int:id>/', views.delete_menu, name = 'delete_menu'),
-    path('cusdisplay_res/', views.cusdisplay_res, name = 'cusdisplay_res'),
-    #path('viewcustomer_menu/', views.viewcustomer_menu, name = 'viewcustomer_menu'),
-    path('cusmenu/<int:id>/', views.cusmenu, name = 'cusmenu'),
+    path('cusdisplay_res/<str:username>/', views.cusdisplay_res, name = 'cusdisplay_res'),
+    path('cusmenu/<int:id>/<str:username>/', views.cusmenu, name = 'cusmenu'),
 ]
