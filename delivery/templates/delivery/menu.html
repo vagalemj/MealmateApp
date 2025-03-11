@@ -10,7 +10,6 @@
         <p>Address: {{ res.address }}</p>
         <p>Category: {{ res.Food_cat }}</p>
         <p>Rating: {{ res.rating }}</p>
-
         <table border="1" style="width: 100vw">
             <tr>
                 <th>Item Name</th>
@@ -44,7 +43,6 @@
             </tr>
             {% endfor %}
         </table>
-
         <br />
         <a href="{% url "delivery:add_menu" res.id %}">
             <button>Add Menu</button>
@@ -52,4 +50,3 @@
     </body>
 </html>
 {% endblock %}
-

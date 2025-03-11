@@ -36,15 +36,14 @@
 
     <script>
       var options = {
-        key: "{{ razorpay_key_id }}", // Razorpay API key
-        amount: "{{ total_price|floatformat:2|add:'0.00'|floatformat:2 }}00", // Amount in paisa
+        key: "{{ razorpay_key_id }}", 
+        amount: "{{ total_price|floatformat:2|add:'0.00'|floatformat:2 }}00", 
         currency: "INR",
         name: "Meal Mate",
         description: "Order Payment",
-        order_id: "{{ order_id }}", // Razorpay order ID
+        order_id: "{{ order_id }}", 
         handler: function (response) {
           alert("Payment Successful!");
-          // Redirect to the orders page
           window.location.href = "{% url 'delivery:orders' username %}";
         },
         prefill: {

@@ -13,7 +13,5 @@ class MenuForm(forms.ModelForm):
         model = Menu
         fields = ['item_name', 'description', 'price', 'is_available', 'category']
 
-
 class CartForm(forms.ModelForm):
     list_display = ("customer", "total_price")
-

@@ -6,8 +6,6 @@ from django.contrib import messages
 from django.conf import settings
 import razorpay
 
-
-
 # Create your views here.
 def index(request):
     return render(request, 'delivery/index.html')
@@ -58,7 +56,6 @@ def add_res(request):
         except Restaurants.DoesNotExist:  
             form.save()
             return redirect('delivery:display_res')
-
     return render(request, 'delivery/add_res.html', {'form': form})
 
 def display_res(request):
@@ -131,9 +128,11 @@ def checkout(request, username):
         'payment_capture':'1',
     }
     order = client.order.create(data = order_data)
+
     return render(
         request, 'delivery/checkout.html',
-        {'username':username,
+        {
+        'username':username,
         'cart_items':cart_items,
         'total_price':total_price,
         'razorpay_key_id':settings.RAZORPAY_KEY_ID,
@@ -143,17 +142,19 @@ def checkout(request, username):
     )
 
 def orders(request, username):
-        customer = Customer.objects.get(username = username)
-        cart = Cart.objects.filter(customer=customer).first()
-        cart_items = cart.items.all() if cart else []
-        total_price = cart.total_price() if cart else 0
+    customer = Customer.objects.get(username = username)
+    cart = Cart.objects.filter(customer=customer).first()
+    cart_items = cart.items.all() if cart else []
+    total_price = cart.total_price() if cart else 0
 
-        if cart:
-            cart.items.clear()
+    if cart:
+        cart.items.clear()
 
-        return render(request, 'delivery/orders.html',{
-        'username':username,
-        'cart_items':cart_items,
-        'total_price':total_price,
-        'customer':customer
-        })
+    return render(request, 'delivery/orders.html',
+    {
+    'username':username,
+    'cart_items':cart_items,
+    'total_price':total_price,
+    'customer':customer
+    }
+)
