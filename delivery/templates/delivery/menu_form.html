@@ -1,9 +1,93 @@
 {% extends "delivery/base.html" %} 
+
 {% block content %}
-<div style="margin-top: 50px"></div>
-<form method="POST">
-    {% csrf_token %} 
-    {{ form.as_p }}  <!-- Ensure form fields render properly -->
-    <button type="submit">Submit</button>
-</form>
+<div class="container">
+    <h2>Submit Form</h2>
+    <form method="POST" class="styled-form">
+        {% csrf_token %} 
+        {{ form.as_p }}  <!-- Ensure form fields render properly -->
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</div>
+
+<style>
+    /* General Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background-color: #f7f7f7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 80px;
+    }
+
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 90%;
+        max-width: 600px;
+    }
+
+    h2 {
+        color: #ff7b00;
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    /* Form Styling */
+    .styled-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        text-align: left;
+    }
+
+    .styled-form input,
+    .styled-form select,
+    .styled-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+
+    .styled-form textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    .styled-form label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+        background-color: #ff7b00;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 1rem;
+    }
+
+    .submit-btn:hover {
+        background-color: #ff4500;
+        transform: scale(1.05);
+    }
+</style>
+
 {% endblock %}

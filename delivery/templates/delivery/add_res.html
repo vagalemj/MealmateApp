@@ -1,23 +1,125 @@
-{% extends "delivery/base.html" %} {% block content %}
-<div style="margin-top: 50px"></div>
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
+{% extends "delivery/base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Add a New Restaurant</h2>
     
-    <label>Restaurant Name: </label>
-     {{ form.Res_name }}
-    
-    <label>Food Category: </label>
-     {{ form.Food_cat }}
-    
-    <label>Rating: </label>
-     {{ form.rating }}
-    
-    <label>Image: </label>
-     {{ form.img }}
-    
-    <label>Address: </label>
-     {{ form.address }}
-    
-    <button type="submit">Submit</button>
+    <form method="POST" enctype="multipart/form-data" class="form-container">
+        {% csrf_token %}
+        
+        <label>Restaurant Name:</label>
+        {{ form.Res_name }}
+
+        <label>Food Category:</label>
+        {{ form.Food_cat }}
+
+        <label>Rating:</label>
+        {{ form.rating }}
+
+        <label>Image:</label>
+        {{ form.img }}
+
+        <label>Address:</label>
+        {{ form.address }}
+
+        <button type="submit">Add Restaurant 🏠</button>
     </form>
+</div>
+
+<style>
+    /* General Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background-color: #f7f7f7;
+        color: #333;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .container {
+        margin-top: 30px;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #ff4500;
+    }
+
+    .form-container {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        text-align: left;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        color: #444;
+        margin: 10px 0 5px;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    input:focus, select:focus {
+        border-color: #ff7b00;
+        box-shadow: 0 0 5px rgba(255, 123, 0, 0.5);
+    }
+
+    button {
+        margin-top: 20px;
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(45deg, #ff7b00, #ff9f1a);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 1rem;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(255, 123, 0, 0.4);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            max-width: 90%;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+        }
+    }
+</style>
+
 {% endblock %}
