@@ -44,9 +44,6 @@ python manage.py runserver
 ```
 Access the app at **http://127.0.0.1:8000/** in your browser.
 
-## 📸 Screenshots
-*(Include screenshots of the application UI here)*
-
 ## 📌 Future Enhancements
 - Implement API for mobile app integration
 - Add payment gateway integration
