@@ -16,6 +16,12 @@ MealMateApp is a Django-based food ordering and delivery management system. It p
 - **Frontend:** HTML, CSS, JavaScript
 - **Database:** SQLite (Can be switched to PostgreSQL/MySQL)
 - **Authentication:** Django’s built-in authentication system
+- **Payment Gateway:** Razorpay API for secure transactions
+
+- **Backend:** Django, Python
+- **Frontend:** HTML, CSS, JavaScript
+- **Database:** SQLite (Can be switched to PostgreSQL/MySQL)
+- **Authentication:** Django’s built-in authentication system
 
 ## ⚙️ Installation Guide
 
